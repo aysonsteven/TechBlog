@@ -12,9 +12,8 @@ public class TblCategories {
     private int id;
     
     @Column(name="category_name")
-    
-    
     private String categoryName;
+    
 	public int getId() {
 		return id;
 	}
