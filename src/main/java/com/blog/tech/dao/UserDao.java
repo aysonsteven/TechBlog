@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserDao extends CrudRepository<TblUser, Integer> {
 
     TblUser findByUsername(String username);
+    
+    TblUser findById( int id );
 }

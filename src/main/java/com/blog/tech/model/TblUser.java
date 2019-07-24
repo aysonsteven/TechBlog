@@ -3,6 +3,7 @@ package com.blog.tech.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -10,7 +11,15 @@ import javax.persistence.*;
 @Table(name = "users")
 public class TblUser {
 
-    @Id
+    public List<TblTokens> getTokens() {
+		return tokens;
+	}
+
+	public void setTokens(List<TblTokens> tokens) {
+		this.tokens = tokens;
+	}
+
+	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="uid")
     private int id;
@@ -27,9 +36,11 @@ public class TblUser {
     private long salary;
     @Column
     private int age;
-    
-    @Column
-    private String token;
+
+
+    @OneToMany
+    @JoinColumn(name = "user_id", referencedColumnName = "uid", insertable = false, updatable = false)
+    private  List<TblTokens> tokens;
     
     @Column(name="active")
     private Integer isActive;
@@ -49,13 +60,6 @@ public class TblUser {
 		this.isActive = isActive;
 	}
 
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
 
 	public int getIsActive() {
 		return isActive;

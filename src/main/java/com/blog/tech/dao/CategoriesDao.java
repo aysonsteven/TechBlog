@@ -10,5 +10,5 @@ import com.blog.tech.model.TblCategories;
 @Repository
 public interface CategoriesDao extends CrudRepository<TblCategories, Integer> {
 	
-	List<TblCategories> findAll();
+//	List<TblCategories> findAll();
 }

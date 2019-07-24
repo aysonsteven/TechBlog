@@ -19,10 +19,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
-	
+
 	@Autowired
 	private UserDao userDao;
 
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		TblUser user = userDao.findByUsername(username);
-		if(user == null){
+		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
 		return new User(user.getUsername(), user.getPassword(), getAuthority());
@@ -59,29 +58,29 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Override
 	public TblUser findById(int id) {
-		Optional<TblUser> optionalUser = userDao.findById(id);
-		return optionalUser.isPresent() ? optionalUser.get() : null;
+		TblUser user = userDao.findById(id);
+		return user;
 	}
 
-    @Override
-    public UserDto update(UserDto userDto) {
-        TblUser user = findById(userDto.getId());
-        if(user != null) {
-            BeanUtils.copyProperties(userDto, user, "password");
-            userDao.save(user);
-        }
-        return userDto;
-    }
+	@Override
+	public UserDto update(UserDto userDto) {
+		TblUser user = findById(userDto.getId());
+		if (user != null) {
+			BeanUtils.copyProperties(userDto, user, "password");
+			userDao.save(user);
+		}
+		return userDto;
+	}
 
-    @Override
-    public TblUser save(UserDto user) {
-	    TblUser newUser = new TblUser();
-	    newUser.setUsername(user.getUsername());
-	    newUser.setFirstName(user.getFirstName());
-	    newUser.setLastName(user.getLastName());
-	    newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+	@Override
+	public TblUser save(UserDto user) {
+		TblUser newUser = new TblUser();
+		newUser.setUsername(user.getUsername());
+		newUser.setFirstName(user.getFirstName());
+		newUser.setLastName(user.getLastName());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
 		newUser.setAge(user.getAge());
 		newUser.setSalary(user.getSalary());
-        return userDao.save(newUser);
-    }
+		return userDao.save(newUser);
+	}
 }

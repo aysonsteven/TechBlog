@@ -1,5 +1,10 @@
 package com.blog.tech.dto;
 
+import java.util.Date;
+import java.util.List;
+
+import com.blog.tech.model.TblUser;
+
 public class UserDto {
 
     private int id;
@@ -8,7 +13,58 @@ public class UserDto {
     private String username;
     private String password;
     private int age;
-    private int salary;
+    private long salary;
+    private Integer isActive;
+	private Date dateCreated;
+	private Integer tokenId;
+	private List<TokenDto> tokens;
+	
+	public Integer getTokenId() {
+		return tokenId;
+	}
+
+	public void setTokenId(Integer tokenId) {
+		this.tokenId = tokenId;
+	}
+
+	public List<TokenDto> getTokens() {
+		return tokens;
+	}
+
+	public void setTokens(List<TokenDto> tokens) {
+		this.tokens = tokens;
+	}
+
+	public UserDto() {
+		
+	}
+	
+	
+    public Integer getToken() {
+		return tokenId;
+	}
+
+	public void setToken(Integer token) {
+		this.tokenId = token;
+	}
+
+	public Integer getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Integer isActive) {
+		this.isActive = isActive;
+	}
+
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+
+
 
     public int getId() {
         return id;
@@ -58,11 +114,11 @@ public class UserDto {
         this.age = age;
     }
 
-    public int getSalary() {
+    public long getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(long salary) {
         this.salary = salary;
     }
 }
