@@ -63,7 +63,7 @@ public class UserController {
         return new ApiResponse<>(HttpStatus.OK.value(), "User updated successfully.",userService.update(userDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ApiResponse<Void> delete(@PathVariable int id, @RequestHeader(value="Authorization") String token) {
     	TblTokens tokenObject = tokenService.findTokenByName(token.replaceFirst("Bearer ", ""));
     	if(tokenObject == null || tokenObject.getToken() =="") {
