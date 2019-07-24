@@ -39,11 +39,6 @@ public class AuthenticationController {
         TokenDto tokenObject = new TokenDto();
         tokenObject.setToken(token);
         tokenService.inserTokens(tokenObject, user.getId());
-        
-        
-//        UserDto userDto = new UserDto(user);
-//        userService.update();
-//        System.out.println("token->"+ userDto.getToken());
         return new ApiResponse<>(HttpStatus.OK.value(), "success",new AuthToken(token, loginUser.getUsername()));
     }
 
