@@ -43,7 +43,7 @@ public class UserController {
         return new ApiResponse<>(HttpStatus.OK.value(), "User list fetched successfully.",userService.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getuser/{id}")
     public ApiResponse<TblUser> getOne(@PathVariable int id, @RequestHeader(value="Authorization") String token){
     	TblTokens tokenObject = tokenService.findTokenByName(token.replaceFirst("Bearer ", ""));
     	if(tokenObject == null || tokenObject.getToken() =="") {
@@ -54,7 +54,7 @@ public class UserController {
         return new ApiResponse<>(HttpStatus.OK.value(), "User fetched successfully.",userService.findById(id));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateuser/{id}")
     public ApiResponse<UserDto> update(@RequestBody UserDto userDto, @RequestHeader(value="Authorization") String token) {
     	TblTokens tokenObject = tokenService.findTokenByName(token.replaceFirst("Bearer ", ""));
     	if(tokenObject == null || tokenObject.getToken() =="") {
@@ -63,7 +63,7 @@ public class UserController {
         return new ApiResponse<>(HttpStatus.OK.value(), "User updated successfully.",userService.update(userDto));
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ApiResponse<Void> delete(@PathVariable int id, @RequestHeader(value="Authorization") String token) {
     	TblTokens tokenObject = tokenService.findTokenByName(token.replaceFirst("Bearer ", ""));
     	if(tokenObject == null || tokenObject.getToken() =="") {
