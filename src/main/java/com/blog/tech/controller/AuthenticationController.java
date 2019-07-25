@@ -20,26 +20,34 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/token")
 public class AuthenticationController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+	@Autowired
+	private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserService userService;
-    
-    @Autowired TokenService tokenService;
+	@Autowired
+	private JwtTokenUtil jwtTokenUtil;
 
-    @PostMapping("/generate-token")
-    public ApiResponse<AuthToken> login(@RequestBody LoginUser loginUser) throws AuthenticationException {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword()));
-        final TblUser user = userService.findOne(loginUser.getUsername());
-        final String token = jwtTokenUtil.generateToken(user);
-        TokenDto tokenObject = new TokenDto();
-        tokenObject.setToken(token);
-        tokenService.inserTokens(tokenObject, user.getId());
-        return new ApiResponse<>(HttpStatus.OK.value(), "success",new AuthToken(token, loginUser.getUsername()));
-    }
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private TokenService tokenService;
+
+	@PostMapping("/generate-token")
+	public ApiResponse<AuthToken> login(@RequestBody LoginUser loginUser) throws AuthenticationException {
+		authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(loginUser.getUsername(), loginUser.getPassword()));
+		final TblUser user = userService.findOne(loginUser.getUsername());
+		final String token = jwtTokenUtil.generateToken(user);
+		TokenDto tokenObject = new TokenDto();
+		tokenObject.setToken(token);
+		return new ApiResponse<>(HttpStatus.OK.value(), tokenService.inserTokens(tokenObject, user.getId()),
+				new AuthToken(token, loginUser.getUsername()));
+	}
+	
+	@DeleteMapping("/logout")
+	public ApiResponse<String> logout(@RequestHeader(value="Authorization") String token){
+		String tokenObject = tokenService.deleteTokenByTokenName(token.replaceAll("Bearer ", ""));
+		return new ApiResponse<>(HttpStatus.OK.value(), "deleted", tokenObject);
+	}
 
 }
