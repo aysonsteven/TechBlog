@@ -8,5 +8,7 @@ public interface TokenService {
 
 	TblTokens findTokenByName(String token);
 	
+	String deleteTokenByTokenName(String token);
+	
 	
 }

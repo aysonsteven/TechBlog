@@ -1,8 +1,5 @@
 package com.blog.tech.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +31,16 @@ public class TokenServiceImpl implements TokenService{
 		
 		return tokenDao.findByToken(tokenname);
 	}
+	@Override
+	public String deleteTokenByTokenName(String token) {
+		TblTokens tokenObject = tokenDao.findByToken(token);
+		if( tokenObject != null ) {
+			tokenDao.deleteById(tokenObject.getId());;
+		}else {
+			return "token doesn't exist";
+		}
+		return "deleted";
+	}
+	
 
 }

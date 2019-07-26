@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.blog.tech.service.CategoriesService;
+
 import javax.annotation.Resource;
 
 @Configuration
@@ -23,6 +25,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource(name = "userService")
     private UserDetailsService userDetailsService;
+    
+    @Resource(name= "categoriesService")
+    private CategoriesService categoriesService;
+    
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
