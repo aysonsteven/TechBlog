@@ -3,8 +3,6 @@ package com.blog.tech.dto;
 import java.util.Date;
 import java.util.List;
 
-import com.blog.tech.model.TblUser;
-
 public class UserDto {
 
     private int id;

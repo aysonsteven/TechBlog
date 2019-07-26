@@ -6,4 +6,6 @@ import com.blog.tech.model.TblCategories;
 
 public interface CategoriesService {
 	List<TblCategories> findAllCategories();
+	
+	TblCategories findCategoryById( Integer id );
 }

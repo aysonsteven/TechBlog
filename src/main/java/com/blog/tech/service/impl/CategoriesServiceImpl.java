@@ -45,6 +45,13 @@ public class CategoriesServiceImpl implements UserDetailsService, CategoriesServ
 		return categoryList;
 	}
 
+	@Override
+	public TblCategories findCategoryById( Integer id ) {
+		// TODO Auto-generated method stub
+		return categoriesDao.fineOne(id);
+//		return new TblCategories();
+	}
+
 
 
 
