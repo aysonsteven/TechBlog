@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.blog.tech.dto.ApiResponse;
-import com.blog.tech.dto.CategoriesDto;
-import com.blog.tech.model.TblTokens;
-import com.blog.tech.service.TokenService;
-import com.blog.tech.service.impl.CategoriesServiceImpl;
+import jar.blog.tech.dto.ApiResponse;
+import jar.blog.tech.dto.CategoriesDto;
+import jar.blog.tech.model.TblTokens;
+import jar.blog.tech.service.TokenService;
+import jar.blog.tech.service.impl.CategoriesServiceImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
