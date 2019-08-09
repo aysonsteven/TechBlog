@@ -19,26 +19,26 @@
 	</properties>
 	
 	<repositories>
-		<repository>
-			<id>mvn-repo</id>
-			<url>https://github.com/aysonsteven/EntityJar.git</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>mvn-repo2</id>
-			<url>https://github.com/aysonsteven/SecurityServer.git</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>mvn-repo</id> -->
+<!-- 			<url>https://github.com/aysonsteven/EntityJar.git</url> -->
+<!-- 			<releases> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</releases> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>mvn-repo2</id> -->
+<!-- 			<url>https://github.com/aysonsteven/SecurityServer.git</url> -->
+<!-- 			<releases> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</releases> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 		</repository> -->
 	</repositories>
 
 	<dependencies>
