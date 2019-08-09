@@ -23,7 +23,7 @@ import guard.blog.tech.config.JwtTokenUtil;
 @RequestMapping("/token")
 public class AuthenticationController {
 
-	@Autowired
+	@Autowired(required = true)
 	private AuthenticationManager authenticationManager;
 
 	@Autowired

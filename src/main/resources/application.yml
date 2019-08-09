@@ -9,5 +9,4 @@ spring:
     hibernate.ddl-auto: update
     hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 server:
-  address: 172.168.11.69
-  port: 8080
+  port: 9090
