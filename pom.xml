@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.multiple.module</groupId>
-		<artifactId>multimodule</artifactId>
-		<version>0.0.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.blog.tech</groupId>
 	<artifactId>TechBlog</artifactId>
@@ -19,26 +19,26 @@
 	</properties>
 	
 	<repositories>
-<!-- 		<repository> -->
-<!-- 			<id>mvn-repo</id> -->
-<!-- 			<url>https://github.com/aysonsteven/EntityJar.git</url> -->
-<!-- 			<releases> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 			</releases> -->
-<!-- 			<snapshots> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 			</snapshots> -->
-<!-- 		</repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>mvn-repo2</id> -->
-<!-- 			<url>https://github.com/aysonsteven/SecurityServer.git</url> -->
-<!-- 			<releases> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 			</releases> -->
-<!-- 			<snapshots> -->
-<!-- 				<enabled>true</enabled> -->
-<!-- 			</snapshots> -->
-<!-- 		</repository> -->
+		<repository>
+			<id>mvn-repo</id>
+			<url>https://github.com/aysonsteven/EntityJar.git</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>mvn-repo2</id>
+			<url>https://github.com/aysonsteven/SecurityServer.git</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<dependencies>
